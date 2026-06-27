@@ -4,11 +4,15 @@ const Counter = () => {
   const [count, setCount] = useState(0);
 
   const increment = () => {
-    setCount(count + 1);
+    if (count < 10) {
+      setCount(count + 1);
+    }
   };
 
   const decrement = () => {
-    setCount(count - 1);
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
 
   const reset = () => {
@@ -20,10 +24,17 @@ const Counter = () => {
       <div className="main">
         <h2>Counter App</h2>
         <h3>Count : {count}</h3>
+        {count === 10 && <p className="message">🎉 Maximum Limit Reached</p>}
+
+        {count === 0 && <p className="message">🚫 Minimum Limit Reached</p>}
       </div>
       <div className="container">
-        <button onClick={increment}>INCREMENT</button>
-        <button onClick={decrement}>DECREMENT</button>
+        <button onClick={increment} disabled={count === 10}>
+          INCREMENT
+        </button>
+        <button onClick={decrement} disabled={count === 0}>
+          DECREMENT
+        </button>
         <button onClick={reset}>RESET</button>
       </div>
     </div>
