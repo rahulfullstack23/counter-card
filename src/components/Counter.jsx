@@ -24,9 +24,9 @@ const Counter = () => {
       <div className="main">
         <h2>Counter App</h2>
         <h3>Count : {count}</h3>
-        {count === 10 && <p className="message">🎉 Maximum Limit Reached</p>}
+        {count === 10 && <p className="message"> Maximum Limit Reached</p>}
 
-        {count === 0 && <p className="message">🚫 Minimum Limit Reached</p>}
+        {count === 0 && <p className="message"> Minimum Limit Reached</p>}
       </div>
       <div className="container">
         <button onClick={increment} disabled={count === 10}>
